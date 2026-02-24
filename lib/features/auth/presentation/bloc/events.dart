@@ -4,10 +4,11 @@ abstract class AuthEvent {}
 
 class AppStarted extends AuthEvent {}
 
-class LoggedIn extends AuthEvent {
-  final AppUser user;
+class LoginRequested extends AuthEvent {
+  final String email;
+  final String password;
 
-  LoggedIn({required this.user});
+  LoginRequested({required this.email, required this.password});
 
 }
 

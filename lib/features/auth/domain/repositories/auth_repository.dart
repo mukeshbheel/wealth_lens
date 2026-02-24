@@ -1,10 +1,12 @@
+import 'package:dartz/dartz.dart';
+import 'package:wealth_lens/core/error/failures.dart';
 import 'package:wealth_lens/features/auth/domain/entities/app_user.dart';
 
 abstract class AuthRepository {
-  Future<AppUser> signIn({required String email, required String password});
-  Future<AppUser> signUp({required String email, required String password});
+  Future<Either<Failures, AppUser>> signIn({required String email, required String password});
+  Future<Either<Failures, AppUser>> signUp({required String email, required String password});
 
-  Future<void> signOut();
+  Future<Either<Failures, void>> signOut();
 
-  Future<AppUser?> getCurrentUser();
+  Future<Either<Failures, AppUser?>> getCurrentUser();
 }

@@ -18,17 +18,48 @@ class AuthBloc extends Bloc<AuthEvent, AuthAppState> {
     required this.signOut,
     required this.getCurrentUser,
   }) : super(AuthInitial()) {
-    on<AppStarted>((event, emit) async {
-      emit(AuthLoading());
+    on<AppStarted>(_onAppStarted);
+    on<LoginRequested>(_onLoggedIn);
+    on<LoggedOut>(_onLoggedOut);
+  }
 
-      final user = await getCurrentUser();
+  _onAppStarted(AppStarted event, Emitter<AuthAppState> emit) async {
+    emit(AuthLoading());
 
-      if(user == null){
-        emit(AuthUnAuthenticated());
-      }else{
+    final result = await getCurrentUser();
+
+    result.fold(
+      (failure) {
+        emit(AuthError(message: failure.message));
+      },
+      (user) {
+        if (user == null) {
+          emit(AuthUnAuthenticated());
+        } else {
+          emit(AuthAuthenticated(user: user));
+        }
+      },
+    );
+  }
+
+  _onLoggedIn(LoginRequested event, Emitter<AuthAppState> emit) async {
+    final result = await signIn(event.email, event.password);
+
+    result.fold(
+      (failure){
+        emit(AuthError(message: failure.message));
+      },
+      (user){
         emit(AuthAuthenticated(user: user));
-      }
+      },
+    );
+  }
 
-    });
+  Future<void> _onLoggedOut(
+      LoggedOut event,
+      Emitter<AuthAppState> emit,
+      ) async {
+    await signOut();
+    emit(AuthUnAuthenticated());
   }
 }
