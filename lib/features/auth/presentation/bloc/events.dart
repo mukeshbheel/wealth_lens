@@ -1,4 +1,3 @@
-import 'package:wealth_lens/features/auth/domain/entities/app_user.dart';
 
 abstract class AuthEvent {}
 

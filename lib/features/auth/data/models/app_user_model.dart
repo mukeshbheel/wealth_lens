@@ -1,4 +1,5 @@
-import 'package:supabase/supabase.dart';
+
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:wealth_lens/features/auth/domain/entities/app_user.dart';
 
 class AppUserModel extends AppUser {

@@ -1,4 +1,5 @@
-import 'package:supabase/supabase.dart';
+
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:wealth_lens/features/auth/data/models/app_user_model.dart';
 import 'package:wealth_lens/features/auth/domain/entities/app_user.dart';
 
@@ -28,7 +29,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource{
     final response = await client.auth.signInWithPassword(email: email, password: password);
     final user = response.user;
     if(user == null){
-      throw Exception("Login Failed");
+      throw Exception('Login Failed');
     }
     return AppUserModel.fromSupabase(user);
   }
@@ -43,7 +44,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource{
     final response = await client.auth.signUp(email: email, password: password);
     final user = response.user;
     if(user == null){
-      throw Exception("Sign up failed");
+      throw Exception('Sign up failed');
     }
 
     return AppUserModel.fromSupabase(user);

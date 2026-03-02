@@ -1,4 +1,5 @@
-import 'package:supabase/supabase.dart';
+
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:wealth_lens/features/dashboard/data/models/asset_model.dart';
 import 'package:wealth_lens/features/dashboard/data/models/liability_model.dart';
 

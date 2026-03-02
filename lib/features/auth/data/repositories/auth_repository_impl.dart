@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:supabase/supabase.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:wealth_lens/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:wealth_lens/features/auth/domain/entities/app_user.dart';
 import 'package:wealth_lens/features/auth/domain/repositories/auth_repository.dart';
 
-import '../../../../core/error/failures.dart';
+import 'package:wealth_lens/core/error/failures.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource authRemoteDataSource;
@@ -19,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on AuthException catch (e){
       return Left(AuthFailure(message: e.message));
     }catch (e) {
-      return Left(ServerFailure(message: "Unexpected error occurred"));
+      return Left(ServerFailure(message: 'Unexpected error occurred'));
     }
   }
 
@@ -31,7 +31,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on AuthException catch (e){
       return Left(AuthFailure(message: e.message));
     }catch (e) {
-      return Left(ServerFailure(message: "Unexpected error occurred"));
+      return Left(ServerFailure(message: 'Unexpected error occurred'));
     }
   }
 
@@ -43,7 +43,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on AuthException catch (e){
       return Left(AuthFailure(message: e.message));
     }catch (e) {
-      return Left(ServerFailure(message: "Unexpected error occurred"));
+      return Left(ServerFailure(message: 'Unexpected error occurred'));
     }
   }
 
@@ -55,7 +55,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on AuthException catch (e){
       return Left(AuthFailure(message: e.message));
     }catch (e) {
-      return Left(ServerFailure(message: "Unexpected error occurred"));
+      return Left(ServerFailure(message: 'Unexpected error occurred'));
     }
   }
 

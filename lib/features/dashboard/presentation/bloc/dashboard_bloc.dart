@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wealth_lens/features/dashboard/domain/usecases/get_dashboard_data.dart';
 import 'package:wealth_lens/features/dashboard/presentation/bloc/dashboard_event.dart';
 import 'package:wealth_lens/features/dashboard/presentation/bloc/dashboard_state.dart';

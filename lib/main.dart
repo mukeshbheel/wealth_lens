@@ -4,15 +4,15 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:wealth_lens/features/auth/domain/usecases/sign_out.dart';
 import 'package:wealth_lens/features/auth/domain/usecases/sign_up.dart';
 import 'package:wealth_lens/features/auth/presentation/bloc/state.dart';
-import 'features/auth/presentation/bloc/bloc.dart';
-import 'features/auth/presentation/bloc/events.dart';
-import 'features/auth/presentation/pages/login_page.dart';
+import 'package:wealth_lens/features/auth/presentation/bloc/bloc.dart';
+import 'package:wealth_lens/features/auth/presentation/bloc/events.dart';
+import 'package:wealth_lens/features/auth/presentation/pages/login_page.dart';
 
-import 'features/auth/data/datasources/auth_remote_data_source.dart';
-import 'features/auth/data/repositories/auth_repository_impl.dart';
-import 'features/auth/domain/usecases/sign_in.dart';
-import 'features/auth/domain/usecases/get_current_user.dart';
-import 'features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:wealth_lens/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:wealth_lens/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:wealth_lens/features/auth/domain/usecases/sign_in.dart';
+import 'package:wealth_lens/features/auth/domain/usecases/get_current_user.dart';
+import 'package:wealth_lens/features/dashboard/presentation/pages/dashboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

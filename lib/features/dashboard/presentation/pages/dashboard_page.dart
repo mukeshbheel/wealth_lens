@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../auth/presentation/bloc/bloc.dart';
-import '../../../auth/presentation/bloc/events.dart';
+import 'package:wealth_lens/features/auth/presentation/bloc/bloc.dart';
+import 'package:wealth_lens/features/auth/presentation/bloc/events.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -11,7 +11,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dashboard"),
+        title: const Text('Dashboard'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -22,7 +22,7 @@ class DashboardPage extends StatelessWidget {
         ],
       ),
       body: const Center(
-        child: Text("Logged In Successfully"),
+        child: Text('Logged In Successfully'),
       ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wealth_lens/features/auth/domain/usecases/get_current_user.dart';
 import 'package:wealth_lens/features/auth/domain/usecases/sign_in.dart';
 import 'package:wealth_lens/features/auth/domain/usecases/sign_out.dart';
@@ -23,7 +23,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthAppState> {
     on<LoggedOut>(_onLoggedOut);
   }
 
-  _onAppStarted(AppStarted event, Emitter<AuthAppState> emit) async {
+  Future<void> _onAppStarted(AppStarted event, Emitter<AuthAppState> emit) async {
     emit(AuthLoading());
 
     final result = await getCurrentUser();
@@ -42,7 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthAppState> {
     );
   }
 
-  _onLoggedIn(LoginRequested event, Emitter<AuthAppState> emit) async {
+  Future<void> _onLoggedIn(LoginRequested event, Emitter<AuthAppState> emit) async {
     final result = await signIn(event.email, event.password);
 
     result.fold(
